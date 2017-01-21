@@ -1,0 +1,101 @@
+@page {
+	size: a4 portrait;
+}
+
+body {
+	font-family: "Georgia", Georgia, serif;
+	font-size: 100%;
+}
+
+h1 {
+	font-size: 2.5em;
+	text-align: center;
+	text-transform: capitalize;
+	font-style: italic;
+	page-break-before: always;
+}
+
+h2 {
+	border-left: 6px solid black;
+	background-color: lightgrey;
+	text-decoration: underline;
+	text-transform: uppercase;
+	padding-left: 5px;
+	font-size: 1.75em;
+	margin-top: 70px;
+	margin-right: 40px;
+	page-break-before: always;
+}
+
+h1, h2 {
+	page-break-after: avoid;
+}
+
+nav {
+	text-transform: uppercase;
+	font-size: 1.5em;
+}
+
+p {
+	widows: 4;
+	orphans: 3;
+}
+
+p.subtitle {
+	text-align: center;
+	font-style: italic;
+	font-size: 1.7em;
+}
+
+table, figure, ul {
+	page-break-inside: avoid;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+	width: 75%;
+}
+
+caption {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
+caption.below {
+	caption-side: bottom;
+}
+
+td {
+	font-style: italic;
+	font-weight: lighter;
+	font-size: 0.875em;
+	height: 23px;
+	padding-left: 5px;
+}
+
+th {
+	height: 40px;
+	font-variant: small-caps;
+	text-align: center;
+}
+
+td.borderless, th.borderless {
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+
+li.five {
+	border-style: dotted solid
+}
+
+ul {
+	list-style-type: square;
+	list-style-position: inside;
+}

@@ -1,0 +1,150 @@
+body {
+	font-family: "Georgia", Georgia, serif;
+	font-size: 100%;
+}
+
+h2, table, ol {
+	margin-left: 50px;
+}
+
+h1 {
+	text-align: center;
+	text-transform: capitalize;
+	font-style: italic;
+	font-size: 2.5em;
+}
+
+img.top {
+	vertical-align: text-top;
+}
+
+img.fl {
+	float: right;
+	margin: 0 0 15px 15px;
+}
+
+h2 {
+	border-left: 6px solid black;
+	background-color: lightgrey;
+	text-decoration: underline;
+	text-transform: uppercase;
+	padding-left: 5px;
+	font-size: 1.75em;
+	margin-top: 70px;
+	margin-right: 400px;
+}
+
+p, dd, dt {
+	margin-right: 500px;
+	padding-left: 5px;
+}
+
+p.subtitle {
+	padding-left: 495px;
+	text-align: center;
+	font-style: italic;
+	font-size: 1.7em;
+}
+
+p.shortanswer {
+	text-indent: 30px;
+}
+
+p.source {
+	font-size: 0.75em;
+	font-style: italic;
+	font-weight: lighter;
+	text-align: center;
+}
+
+p.questioneight {
+	margin-left: 75px;
+}
+
+nav {
+	background-image: url("http://i.imgur.com/fzAdbAd.jpg");
+	background-repeat: repeat-x;
+	text-transform: uppercase;
+	padding-bottom: 550px;
+	padding-left: 10px;
+	padding-top: 7.5px;
+	color: white;
+	font-size: 1.5em;
+}
+
+a:link {
+	color: #008B8B;
+}
+
+a:visited {
+	color: 	#A52A2A;
+}
+
+a:hover {
+	color: #87CEFA;
+}
+
+a:active {
+	color: #1E90FF;
+}
+
+dt {
+	text-decoration: underline;
+}
+
+dd {
+	font-size: 0.875em;
+	font-style: italic;
+	font-weight: lighter;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+	width: 74%;
+}
+
+caption {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
+caption.below {
+	caption-side: bottom;
+}
+
+td:hover{background-color:#f5f5f5}
+
+td {
+	font-style: italic;
+	font-weight: lighter;
+	font-size: 0.875em;
+	height: 23px;
+	padding-left: 5px;
+}
+
+th {
+	height: 40px;
+	font-variant: small-caps;
+	text-align: center;
+}
+
+td.borderless, th.borderless {
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+
+li.five {
+	border-style: dotted solid
+}
+
+ul {
+	list-style-type: square;
+	list-style-position: inside;
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+	<link rel="stylesheet" media="screen" type="text/css" href="Screen.css">
+	<link rel="stylesheet" media="print" type="text/css" href="Print.css">
+	<link rel="stylesheet" media="handheld" type="text/css" href="Handheld.css">
+
+		<title>
+			Week 1: Assignment Group 55 Daniel Kunz Sam de Vilder
+		</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+	    <nav>
+	    	Navigation:<br>
+	    	<a class="nav" href="#BCR">Browser Compatibility Report</a><br>
+	        <a class="nav" href="#Lab1">Lab1</a><br>
+	        <a class="nav" href="#Lab2">Lab2</a>
+	    </nav>
+	    <h1>Web Technologies Assignment <img class="top" src="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Numbers%201%20filled.ico" alt="Number-1-icon" width="75" height="75"></h1>
+	    <p class="subtitle">Group <img class="top" src="https://pbs.twimg.com/profile_images/557536189389881345/xGWO2EUk_reasonably_small.png" alt="Number-55-icon" width="55" height="55"> - Daniel Kunz, Sam de Vilder</p>
+	    <section>
+			<form action="http://wt.ops.few.vu.nl/api/9ba66cb1" method="post">
+	        <table>
+	            <tr>
+	                <th>Name</th>
+	                <th>Category</th>
+	                <th>Amount</th>
+	                <th>Location</th>
+	                <th>Purchase date</th>
+	            </tr>
+	            <tr>
+	                <td>Bananas</td>
+	                <td>Fruit</td>
+	                <td>250</td>
+	                <td>Amsterdam</td>
+	                <td>13-1-2017</td>
+	            </tr>
+	            <tr>
+	                <td>Coca Cola</td>
+	                <td>Drink</td>
+	                <td>1100</td>
+	                <td>Hoorn</td>
+	                <td>9-1-2017</td>
+	            </tr>
+	            <tr>
+	                <td>Bread</td>
+	                <td>Food</td>
+	                <td>120</td>
+	                <td>Utrecht</td>
+	                <td>14-1-2017</td>
+	            </tr>
+	            <tr>
+					<td>Apples</td>
+					<td>Fruit</td>
+					<td>500</td>
+					<td>Amsterdam</td>
+					<td>15-1-2017</td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <input type="text" name="name">
+					</td>
+					<td>
+						<input type="text" name="category">
+					</td>
+					<td>
+						<input type="text" name="amount">
+					</td>
+					<td>
+						<input type="text" name="location">
+					</td>
+					<td>
+						<input type="text" name="date">
+					</td>
+				<tr>
+					<td>Check if input is correct:
+					    <input type=checkbox required>
+					</td>
+					<td>
+						    <input type="submit" value="submit">
+				    </td>
+                </tr>
+	                
+	            
+	        </table>
+			</form>
+			<h2 id="BCR">Browser Compatibility Report</h2>
+			<p class="questioneight">IE reacted totally different to the HTML and CSS files compared to Chrome and Firefox. IE ended up downloading the entire database when we submitted the form. Chrome and Firefox on the other hand had normal expected results when we submitted the form. Something that should also be taken note of is the different results that can arise from the use of padding adjustments versus margin adjustments. In our code we used padding for some of the headers and the navigation and paragraphs for the Screen.css stylesheet. We had originally worked on the stylesheet and HTML file on a 1080p monitor, but viewing it now on a Surface Pro 4, which has a resolution ratio of 3:2 (3000 x 2000p), the website doesn’t scale as well as the screen resolution increases (both viewings were done in the Chrome browser). The print style we had established in the Print stylesheet that the web site would always and should always be printed on an A4 sheet, this applies to all browsers and it ensures that the scaling doesn’t change.</p>
+	    </section>
+		<section>
+		<h2 id="Lab1"> LAB 1 </h2>
+		<ol>
+
+
+            <li><p><img class="fl" src="http://edgeatx.github.io/slides/2015/03-mar/images/w3c-whatwg.jpg" alt="w3c-html5-whatwg" width="650" height="180"><strong>WHATWG</strong> believes that HTML5 allows the web browser to behave like a fast, general-purpose computer while <strong>W3C</strong> described the standardization process as childish, intolerable, ridiculous.
+            </p></li>
+    
+            <li><p> The internet is a network of network and the web is a way to access information on that network trough software. 
+            </p></li>
+
+            <li>
+                <ul>
+		            <li><abbr title="Hyper Text Markup Language">HTML</abbr></li>
+		            <li><abbr title="Uniform Resource Identifier">URI</abbr></li>
+		            <li><abbr title="Hypertext Transfer Protocol">HTTP</abbr></li>
+	            </ul>
+            </li>
+
+            <li><p> The word file is 20 times bigger and the standard font is different.
+            </p></li>
+
+            <li class="five">
+                <dl>
+		            <dt>Port 80 for HTTP</dt>
+			            <dd>The HyperText Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems, a generic and stateless protocol. <br>
+			            <a href=https://tools.ietf.org/html/rfc2616>https://tools.ietf.org/html/rfc2616</a></dd>
+		            <dt>Port 22 for SSH</dt>
+			            <dd>The Secure Shell Protocol is used for secure remote login and other secure network services over an insecure network <br>
+			            <a href=https://tools.ietf.org/html/rfc4251>https://tools.ietf.org/html/rfc4251</a><br> </dd>
+		            <dt>Port 21 for FTP</dt>
+			            <dd>Short for File Transfer Protocol, is used to transfer files between computers on a network, between accounts, or can be used to access online software archives <br>
+			            <a href=https://kb.iu.edu/d/aerg>https://kb.iu.edu/d/aerg</a></dd></dl>
+	
+            </li>
+	
+            <li><p> The bold tag is a style and wont work on mobile devices because everything is already bold. The strong tag is a structure and needs to be interpreted as stronger then the surrounding text so is more compatible with other devices. This also holds true for the i tag and em tag.
+            </p></li>
+
+            <li><p> The span and div elements are both used to group elements in a document but div is used to format later with css and span is used inline.
+            </p></li>
+
+            <li>
+	            <table class="borderless">
+		            <caption>Pros and cons of the iframe tag</caption>
+		            <tr>
+			            <th>Pros</th>
+			            <th>Cons</th>
+		            </tr>
+                    <tr>
+                        <td class="borderless">Isolated page components</td>
+                        <td class="borderless">Makes it harder for components to talk to each other</td>
+	                </tr>
+	                <tr>
+	                	<td class="borderless">Can download assets in parallel (should be noted that this can be done without iframes) </td>
+	                	<td class="borderless">Increased complexity (this is relative)</td>
+	                </tr>
+	                <tr>
+	                	<td class="borderless"></td>
+	                	<td class="borderless">One of the main problems concerns bookmarks and navigation, it becomes difficult/impossible</td>
+	                </tr>
+	                <tr>
+	                	<td class="borderless"></td>
+	                	<td class="borderless">Blocks page onload</td>
+	                </tr>
+	                <tr>
+	                	<td class="borderless"></td>
+						<td class="borderless">Usually adds 300ms to page load delay</td>
+	                </tr>
+	                <tr>
+	                	<td class="borderless"></td>
+	                	<td class="borderless">Browser will request same file(s) multiple times</td>
+	                </tr>
+	                <tr>
+	                	<td class="borderless"></td>
+	                	<td class="borderless">Must have Javascript </td>
+	                </tr>
+	            </table>
+	            <p class="source">Source: <a href=https://gist.github.com/danethurber/b8fcb379b296432ab83e#file-why_not_iframe-txt-L14>https://gist.github.com/danethurber/b8fcb379b296432ab83e#file-why_not_iframe-txt-L14</a></p>
+            <br>
+            </li>
+
+            <li><p> The Benefits of CSSOne of the key benefits to using CSS is that you can easily change a single thing or multiple aspects of your web site without having to change every other web page. Using CSS also allows for faster Web page download time. This is due to having less code behind your web pages. Regarding search engines, CSS is considered a clean coding technique, meaning search engines won't have to struggle with more content than code. CSS offers flexibility in regards to viewing options. It can have a flexible foundation, meaning that your web page can be viewed comfortably on a number of devices, instead of suffering an extremely awkward look on bigger or smaller screens.
+            </p></li>
+
+            <li><p> We would have expected it to either unitalicize or bold the emphasized section so that it would stand out but instead you see no noticeable difference.
+            </p></li>
+
+            <li><p> We picked Chrome and Internet Explorer and we found that the main differences between Chrome and IE is that Chrome has a faster response time and download speed, uses more ram. and has a lot more extensions.
+            </p></li>
+
+		</ol>
+		</section>
+		<section>
+		<h2 id="Lab2"> LAB 2 </h2>
+		<ol>
+		    
+		    <li><p> It corresponds with guideline 1.1 Text Alternatives of the WCAG 2.0 Guidelines.
+		    </p></li>
+		
+		    <li><p>We ran <a href="https://www.duo.nl">duo.nl</a> trough Wave and found that the site had very little errors compared to comercial sites. Only one real error came up which was an empty heading and that shouldnt have a real impact on site readability.
+		    </p></li>
+		    
+		    <li><p>We tested different colour combinations and noticed that a higher contrast ratio resulted in more compliant categories being met. Especially the saturation of the foreground and lack there of in the background and the inverse has a significant impact on the readability of text.
+		    </p></li>
+		    
+		    <li>
+		        <table>
+		        	<caption class="below">Native Apps vs Web Apps</caption>
+			        <tr>
+				        <th></th>
+				        <th>Native Apps</th>
+				        <th>Web Apps</th>
+			        </tr>
+			        <tr>
+				        <th>Pros:</th>
+				            <td>Totally compatible with the device's hardware and native features i.e. accelerometer, camera, etc.</td>
+				            <td>Handle updates on their own (without the need for user intervention)</td>
+			        </tr>
+			        <tr>
+				        <th>Cons:</th>
+				            <td>Have to constantly download updates for the native app as frequently as the developers release updates</td>
+				            <td>Web apps can only access a limited number of the device's native features and hardware</td>
+			        </tr>
+		        </table>
+		</li>
+		
+		<li><p class="shortanswer">The key multilingual issues that the W3C address within the internationalization activity can be summarized as any barriers of deployment and use of the Web and its technologies due to either language, script, region or culture. Within this Internationalization activity there are three major groups known as the International Working Group (IWG), the International Interest Group, and the Internationalization Tag Set (ITS) Interest Group, each group serving a different role within the activity.</p>
+		<p class="shortanswer">It is the IWG that produces content and documents. These include requirements, guidelines and proposals for specification writers, as well as educational resources, anything to help developers and content creators to better understand and more widely implement the Internationalization aspects of W3C technology. Under their Activity Project RADAR page (http://w3c.github.io/i18n-activity/projects/) we will find that the projects fall under categories Requirements development, Developer guidelines, Reviews, discussion, advice, Implementation support, Education & outreach. All the projects run by the Internationalization activity aim to make the Web more universal. To break down all language, cultural and region barriers on the World Wide Web.
+        </p></li>
+        
+		<li><p class="shortanswer">http://www.few.vu.nl and http://cs.vu.nl both share the ip adress 130.37.164.154. We found this by using the following website: <a href="https://www.site24x7.com/find-ip-address-of-web-sit.html">www.site24x7.com</a>. Sharing the same IP address can reduce costs for most businesses and institutions with exceptions for corporate giants like Google (a company with multiple data centers). For most companies and educational institutes, to have multiple dedicated servers for each branch or course that they offer would be impractical and cost inefficient since the costs would outweigh the benefits they would gain from the multiple dedicated servers. Another issue regarding a server's functionality is security. Since both http://www.few.vu.nl and http://www.cs.vu.nl share an IP address, if there were to be a DDoS attack on either of these sites, all other sites sharing this IP address with them would also be out of service until the attack is resolved.
+		</p></li>
+		<li><p class="shortanswer">Internet Protocol version 6 (IPv6) is a much more advanced protocol and has better features than IPv4. Designed to be an evolutionary upgrade that will allow steady growth over time both in terms of Internet traffic and number of hosts connected. It has an infinite number of addresses. It will replace IPv4 world to solve the growing number of networks and the shortage of IP addresses. The number of bits in an IPv4-address are 32 in format decimal equating to a possible 4.3 billion number of addresses. An IPv6-address contains 128 bits in a hexadecimal format which equates to an infinite possible number of addresses. IPv6 will also make some important technological changes that were issues under IPv4. Changes such as auto-configuration, no more private address collisions, better multicast routing and more. <a href="http://www.webopedia.com/DidYouKnow/Internet/ipv6_ipv4_difference.html">http://www.webopedia.com/DidYouKnow/Internet/ipv6_ipv4_difference.html</a>
+		</p></li>
+		
+        <li><p>A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted on the Internet <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">http://www.iana.org/assignments/media-types/media-types.xhtml</a>
+		</p></li>
+		<li><p>HEAD is identical to a GET request only the server must not return a message body in the response.<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html</a>
+		</p></li>
+		<li><p>
+		9ba66cb1
+		</p></li>
+		</ol>
+		
+		
+		
+		<figure>
+		    <img src="http://www.arocalypse.com/forums/applications/core/interface/imageproxy/imageproxy.php?img=https%3A%2F%2Fbarbarajbabcock.files.wordpress.com%2F2014%2F07%2Fhappy-potato-blog-post-2-jul-2014.jpg&key=0edc450b1b84116643398bb22400aa493839ba06e468579b12464bc3b4f52d53" alt="Potato" width="300" height="300">
+		    <figcaption>a cute potato</figcaption>
+		</figure>
+		<p> does this work </p>
+		</section>
+	</body>
+</html>

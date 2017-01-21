@@ -3,6 +3,13 @@ body {
 	font-size: 100%;
 }
 
+table.sortable thead {
+    background-color:#eee;
+    color:#666666;
+    font-weight: bold;
+    cursor: default;
+}
+
 h2, table, ol {
 	margin-left: 50px;
 }

@@ -2,6 +2,10 @@
 	size: a4 portrait;
 }
 
+form, button, #dataButton, #resetButton {
+	display: none;
+}
+
 body {
 	font-family: "Georgia", Georgia, serif;
 	font-size: 100%;

@@ -6,92 +6,91 @@
 	<link rel="stylesheet" media="handheld" type="text/css" href="Handheld.css">
 
 		<title>
-			Week 1: Assignment Group 55 Daniel Kunz Sam de Vilder
+			CS Group 55 DKunz SVilder
 		</title>
 		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#resetbtn").click(function(){
+					alert("Form has been reset");
+				});
+
+				$("th").on("click", function(){
+					var table = $(this).parents('table').eq(0);
+					var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()));
+					this.asc = !this.asc;
+					if (!this.asc) {
+						rows = rows.reverse();
+					}
+					for (var i = 0; i < rows.length; i++) {
+						table.append(rows[i]);
+					}
+				});
+
+				function comparer(index) {
+					return function(a, b) {
+						var valA = getVal(a, index), valB = getVal(b, index);
+						return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB);
+					}
+				}
+
+				function getVal(row, index) {
+					return $(row).children('td').eq(index).html()
+				}
+
+				// AJAX GET method operation below
+				// needs to convert the JSON stringified data into a HTML table
+				$("#dataButton").click(function() {
+					$.get("http://wt.ops.few.vu.nl/api/9ba66cb1/", function(data, status) {
+						alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+					});
+				});
+			});
+		</script>
 	</head>
 	<body>
 	    <nav>
 	    	Navigation:<br>
 	    	<a class="nav" href="#BCR">Browser Compatibility Report</a><br>
 	        <a class="nav" href="#Lab1">Lab1</a><br>
-	        <a class="nav" href="#Lab2">Lab2</a>
+	        <a class="nav" href="#Lab2">Lab2</a><br>
+        	<a class="nav" href="#Lab3">Lab3</a>
 	    </nav>
-	    <p>Hello</p>
 	    <h1>Web Technologies Assignment <img class="top" src="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Numbers%201%20filled.ico" alt="Number-1-icon" width="75" height="75"></h1>
 	    <p class="subtitle">Group <img class="top" src="https://pbs.twimg.com/profile_images/557536189389881345/xGWO2EUk_reasonably_small.png" alt="Number-55-icon" width="55" height="55"> - Daniel Kunz, Sam de Vilder</p>
 	    <section>
 			<form action="http://wt.ops.few.vu.nl/api/9ba66cb1" method="post">
 	        <table>
-	            <tr>
-	                <th>Name</th>
-	                <th>Category</th>
-	                <th>Amount</th>
-	                <th>Location</th>
-	                <th>Purchase date</th>
-	            </tr>
-	            <tr>
-	                <td>Bananas</td>
-	                <td>Fruit</td>
-	                <td>250</td>
-	                <td>Amsterdam</td>
-	                <td>13-1-2017</td>
-	            </tr>
-	            <tr>
-	                <td>Coca Cola</td>
-	                <td>Drink</td>
-	                <td>1100</td>
-	                <td>Hoorn</td>
-	                <td>9-1-2017</td>
-	            </tr>
-	            <tr>
-	                <td>Bread</td>
-	                <td>Food</td>
-	                <td>120</td>
-	                <td>Utrecht</td>
-	                <td>14-1-2017</td>
-	            </tr>
-	            <tr>
-					<td>Apples</td>
-					<td>Fruit</td>
-					<td>500</td>
-					<td>Amsterdam</td>
-					<td>15-1-2017</td>
-	            </tr>
-	            <tr>
-	                <td>
-	                    <input type="text" name="name">
-					</td>
-					<td>
-						<input type="text" name="category">
-					</td>
-					<td>
-						<input type="text" name="amount">
-					</td>
-					<td>
-						<input type="text" name="location">
-					</td>
-					<td>
-						<input type="text" name="date">
-					</td>
-				<tr>
-					<td>Check if input is correct:
-					    <input type=checkbox required>
-					</td>
-					<td>
-						    <input type="submit" value="submit">
-				    </td>
-                </tr>
-	                
-	            
+	        	<thead>
+	        		<tr><th>Product name</th><th>Category</th><th>Amount</th><th>Location</th><th>Purchase Date</th></tr>
+	        	</thead>
+	        	<tbody>
+	        		<tr>
+	        		<td><input type="text" name="name"></td>
+					<td><input type="text" name="category"></td>
+					<td><input type="number" name="amount"></td> <!-- Changed input type from "text" to "number" -->
+					<td><input type="text" name="location"></td>
+					<td><input type="date" name="date"></td> <!-- Changed input type from "text" to "date" -->
+					</tr>
+					<tr>
+					<td>Check if input is correct: <input type=checkbox required></td>
+					<td><input type="submit" value="submit"></td>
+                	</tr>
+	        	</tbody>
 	        </table>
 			</form>
+			<p>
+			<input id="resetButton" type="button" onclick="location.href='http://wt.ops.few.vu.nl/api/9ba66cb1/reset';" value="Reset" /> <!-- changed style for buttons and form in "Print" stylesheet so that they wouldn't display -->
+			<input id="dataButton" type="button" value="Show results">
+			</p>
 			<h2 id="BCR">Browser Compatibility Report</h2>
 			<p class="questioneight">IE reacted totally different to the HTML and CSS files compared to Chrome and Firefox. IE ended up downloading the entire database when we submitted the form. Chrome and Firefox on the other hand had normal expected results when we submitted the form. Something that should also be taken note of is the different results that can arise from the use of padding adjustments versus margin adjustments. In our code we used padding for some of the headers and the navigation and paragraphs for the Screen.css stylesheet. We had originally worked on the stylesheet and HTML file on a 1080p monitor, but viewing it now on a Surface Pro 4, which has a resolution ratio of 3:2 (3000 x 2000p), the website doesn’t scale as well as the screen resolution increases (both viewings were done in the Chrome browser). The print style we had established in the Print stylesheet that the web site would always and should always be printed on an A4 sheet, this applies to all browsers and it ensures that the scaling doesn’t change.</p>
 	    </section>
+
 		<section>
 		<h2 id="Lab1"> LAB 1 </h2>
-		<ol>
+		<ol class="labquestions">
 
 
             <li><p><img class="fl" src="http://edgeatx.github.io/slides/2015/03-mar/images/w3c-whatwg.jpg" alt="w3c-html5-whatwg" width="650" height="180"><strong>WHATWG</strong> believes that HTML5 allows the web browser to behave like a fast, general-purpose computer while <strong>W3C</strong> described the standardization process as childish, intolerable, ridiculous.
@@ -182,9 +181,10 @@
 
 		</ol>
 		</section>
+
 		<section>
 		<h2 id="Lab2"> LAB 2 </h2>
-		<ol>
+		<ol class="labquestions">
 		    
 		    <li><p> It corresponds with guideline 1.1 Text Alternatives of the WCAG 2.0 Guidelines.
 		    </p></li>
@@ -217,30 +217,49 @@
 		</li>
 		
 		<li><p class="shortanswer">The key multilingual issues that the W3C address within the internationalization activity can be summarized as any barriers of deployment and use of the Web and its technologies due to either language, script, region or culture. Within this Internationalization activity there are three major groups known as the International Working Group (IWG), the International Interest Group, and the Internationalization Tag Set (ITS) Interest Group, each group serving a different role within the activity.</p>
-		<p class="shortanswer">It is the IWG that produces content and documents. These include requirements, guidelines and proposals for specification writers, as well as educational resources, anything to help developers and content creators to better understand and more widely implement the Internationalization aspects of W3C technology. Under their Activity Project RADAR page (http://w3c.github.io/i18n-activity/projects/) we will find that the projects fall under categories Requirements development, Developer guidelines, Reviews, discussion, advice, Implementation support, Education & outreach. All the projects run by the Internationalization activity aim to make the Web more universal. To break down all language, cultural and region barriers on the World Wide Web.
+		<p class="shortanswer">It is the IWG that produces content and documents. These include requirements, guidelines and proposals for specification writers, as well as educational resources, anything to help developers and content creators to better understand and more widely implement the Internationalization aspects of W3C technology. Under their Activity Project RADAR page (http://w3c.github.io/i18n-activity/projects/) we will find that the projects fall under categories Requirements development, Developer guidelines, Reviews, discussion, advice, Implementation support, Education and outreach. All the projects run by the Internationalization activity aim to make the Web more universal. To break down all language, cultural and region barriers on the World Wide Web.
         </p></li>
         
 		<li><p class="shortanswer">http://www.few.vu.nl and http://cs.vu.nl both share the ip adress 130.37.164.154. We found this by using the following website: <a href="https://www.site24x7.com/find-ip-address-of-web-sit.html">www.site24x7.com</a>. Sharing the same IP address can reduce costs for most businesses and institutions with exceptions for corporate giants like Google (a company with multiple data centers). For most companies and educational institutes, to have multiple dedicated servers for each branch or course that they offer would be impractical and cost inefficient since the costs would outweigh the benefits they would gain from the multiple dedicated servers. Another issue regarding a server's functionality is security. Since both http://www.few.vu.nl and http://www.cs.vu.nl share an IP address, if there were to be a DDoS attack on either of these sites, all other sites sharing this IP address with them would also be out of service until the attack is resolved.
 		</p></li>
 		<li><p class="shortanswer">Internet Protocol version 6 (IPv6) is a much more advanced protocol and has better features than IPv4. Designed to be an evolutionary upgrade that will allow steady growth over time both in terms of Internet traffic and number of hosts connected. It has an infinite number of addresses. It will replace IPv4 world to solve the growing number of networks and the shortage of IP addresses. The number of bits in an IPv4-address are 32 in format decimal equating to a possible 4.3 billion number of addresses. An IPv6-address contains 128 bits in a hexadecimal format which equates to an infinite possible number of addresses. IPv6 will also make some important technological changes that were issues under IPv4. Changes such as auto-configuration, no more private address collisions, better multicast routing and more. <a href="http://www.webopedia.com/DidYouKnow/Internet/ipv6_ipv4_difference.html">http://www.webopedia.com/DidYouKnow/Internet/ipv6_ipv4_difference.html</a>
 		</p></li>
-		
         <li><p>A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted on the Internet <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">http://www.iana.org/assignments/media-types/media-types.xhtml</a>
 		</p></li>
 		<li><p>HEAD is identical to a GET request only the server must not return a message body in the response.<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html</a>
 		</p></li>
 		<li><p>
-		9ba66cb1
+		Question 10
 		</p></li>
 		</ol>
-		
-		
-		
 		<figure>
 		    <img src="http://www.arocalypse.com/forums/applications/core/interface/imageproxy/imageproxy.php?img=https%3A%2F%2Fbarbarajbabcock.files.wordpress.com%2F2014%2F07%2Fhappy-potato-blog-post-2-jul-2014.jpg&key=0edc450b1b84116643398bb22400aa493839ba06e468579b12464bc3b4f52d53" alt="Potato" width="300" height="300">
 		    <figcaption>a cute potato</figcaption>
 		</figure>
 		<p> does this work </p>
+		</section>
+
+		<section>
+			<h2 id="Lab3">Lab 3</h2>
+			<ol class="labquestions">
+				<li><p class="shortanswer">For this question we used our default browser, Google Chrome. We were able to enable the console by first checking that JavaScript has been enabled for all pages on the Web in our browser's settings. Then by right-clicking somewhere on the lab3 web page on BB and choosing the inspect option we were greeted with a form displaying all the HTML elements of the page.</p>
+					<p class="shortanswer"> We then clicked on the tab "Console" and found the two (2) hidden <code> console.log() </code> messages "Hello World!" and "We advise you to always ...". By clicking on the links to the right of these messages, our console brought us to the sources page. There we found the "script" code block that contained the 'hidden' console.log() lines.</p></li>
+
+				<li><p>Question 2</p></li>
+				<li><p>Question 3</p></li>
+				<li><p>Question 4</p></li>
+				<li><p class="shortanswer"><abbr title="Asynchronous Javascript and XML">'AJAX'</abbr> - asynchronous JavaScript and XML. <em>Asynchronous</em> refers to a non-sequential I/O (input/output), a form of processing that allows other non-I/O-dependant processing to continue before transmission has finished. The simple approach to I/O would be synchronous I/O. While it is simple, it does leave a lot of system resources remaining idle while they wait for all processing to be completed. However in an asynchronous approach, any task that relies on the I/O being complete will still have to wait, but other processing that has no dependency on the I/O operation can continue.</p></li>
+				<li><p>Question 6</p></li>
+				<li>
+					<ol type="i">
+						<li><p><em>Function</em> - functions are lines of code that define a method that will serve the whole document more than just once. "Function" objects created by the "Function" constructor are parsed when it is created. All arguments passed to the function are treated as the names of the identifiers of the parameters in the function to be created, in the order in which they are passed.</p></li>
+						<li><p><em>Proxy</em> - used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc.). The object and its methods can be used to define the behavior of a target proxy when an operation is performed on it.</p></li>
+					</ol>
+				</li>
+				<li><p>Question 8</p></li>
+				<li><p>Question 9</p></li>
+				<li><p>Question 10</p></li>
+			</ol>
 		</section>
 	</body>
 </html>

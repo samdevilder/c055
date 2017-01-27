@@ -27,7 +27,7 @@ img.top {
 
 img.fl {
 	float: right;
-	margin: 0px -50px 0px 0px;
+	margin: 0 0 15px 15px;
 }
 
 h2 {
@@ -55,8 +55,10 @@ a.button {
     color: initial;
 }
 
+#resetButton, #
+
 p.subtitle {
-	margin-left: 495px;
+	padding-left: 495px;
 	text-align: center;
 	font-style: italic;
 	font-size: 1.7em;

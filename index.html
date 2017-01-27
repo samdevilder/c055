@@ -6,7 +6,7 @@
 	<link rel="stylesheet" media="handheld" type="text/css" href="Handheld.css">
 
 		<title>
-			CS Group 55 DKunz SVilder
+			Assignment Group 55 Daniel Kunz Sam de Vilder
 		</title>
 		<meta charset="UTF-8">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -15,6 +15,7 @@
 				$("#resetbtn").click(function(){
 					alert("Form has been reset");
 				});
+			
 
 				$("th").on("click", function(){
 					var table = $(this).parents('table').eq(0);
@@ -37,15 +38,25 @@
 
 				function getVal(row, index) {
 					return $(row).children('td').eq(index).html()
-				}
+					}
 
-				// AJAX GET method operation below
-				// needs to convert the JSON stringified data into a HTML table
-				$("#dataButton").click(function() {
-					$.get("http://wt.ops.few.vu.nl/api/9ba66cb1/", function(data, status) {
-						alert("Data: " + JSON.stringify(data) + "\nStatus: " + status);
-					});
 				});
+		</script>
+		<script>
+			$(document).ready(function () {
+    			$.getJSON("http://wt.ops.few.vu.nl/api/9ba66cb1/",
+    			function (json) {
+        			var tr;
+        			for (var i = 0; i < json.length; i++) {
+            			tr = $('<tr/>');
+            			tr.append("<td>" + json[i].name + "</td>");
+            			tr.append("<td>" + json[i].category + "</td>");
+            			tr.append("<td>" + json[i].amount + "</td>");
+            			tr.append("<td>" + json[i].location+ "</td>");
+            			tr.append("<td>" + json[i].date + "</td>");
+            			$('#tableForm').append(tr);
+        			}
+    			});
 			});
 		</script>
 	</head>
@@ -55,17 +66,21 @@
 	    	<a class="nav" href="#BCR">Browser Compatibility Report</a><br>
 	        <a class="nav" href="#Lab1">Lab1</a><br>
 	        <a class="nav" href="#Lab2">Lab2</a><br>
-        	<a class="nav" href="#Lab3">Lab3</a>
+	        <a class="nav" href="#Lab3">Lab3</a><br>
+	        <a class="nav" href="#Lab4">Lab4</a><br>
 	    </nav>
-	    <h1>Web Technologies Assignment <img class="top" src="http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Numbers%201%20filled.ico" alt="Number-1-icon" width="75" height="75"></h1>
+	    <h1>Web Technologies Assignment </h1>
 	    <p class="subtitle">Group <img class="top" src="https://pbs.twimg.com/profile_images/557536189389881345/xGWO2EUk_reasonably_small.png" alt="Number-55-icon" width="55" height="55"> - Daniel Kunz, Sam de Vilder</p>
 	    <section>
 			<form action="http://wt.ops.few.vu.nl/api/9ba66cb1" method="post">
-	        <table>
+	        <table id="tableForm">
 	        	<thead>
 	        		<tr><th>Product name</th><th>Category</th><th>Amount</th><th>Location</th><th>Purchase Date</th></tr>
 	        	</thead>
-	        	<tbody>
+	        	<tbody id=tableSort>
+	        		
+	        	</tbody>
+	        	<tbody id="tableFormRow">
 	        		<tr>
 	        		<td><input type="text" name="name"></td>
 					<td><input type="text" name="category"></td>
@@ -73,17 +88,12 @@
 					<td><input type="text" name="location"></td>
 					<td><input type="date" name="date"></td> <!-- Changed input type from "text" to "date" -->
 					</tr>
-					<tr>
-					<td>Check if input is correct: <input type=checkbox required></td>
-					<td><input type="submit" value="submit"></td>
-                	</tr>
-	        	</tbody>
+				</tbody>
 	        </table>
+	        <p><input id="submitButton" type="submit" value="submit"></p>
 			</form>
-			<p>
 			<input id="resetButton" type="button" onclick="location.href='http://wt.ops.few.vu.nl/api/9ba66cb1/reset';" value="Reset" /> <!-- changed style for buttons and form in "Print" stylesheet so that they wouldn't display -->
-			<input id="dataButton" type="button" value="Show results">
-			</p>
+
 			<h2 id="BCR">Browser Compatibility Report</h2>
 			<p class="questioneight">IE reacted totally different to the HTML and CSS files compared to Chrome and Firefox. IE ended up downloading the entire database when we submitted the form. Chrome and Firefox on the other hand had normal expected results when we submitted the form. Something that should also be taken note of is the different results that can arise from the use of padding adjustments versus margin adjustments. In our code we used padding for some of the headers and the navigation and paragraphs for the Screen.css stylesheet. We had originally worked on the stylesheet and HTML file on a 1080p monitor, but viewing it now on a Surface Pro 4, which has a resolution ratio of 3:2 (3000 x 2000p), the website doesn’t scale as well as the screen resolution increases (both viewings were done in the Chrome browser). The print style we had established in the Print stylesheet that the web site would always and should always be printed on an A4 sheet, this applies to all browsers and it ensures that the scaling doesn’t change.</p>
 	    </section>
@@ -224,11 +234,11 @@
 		</p></li>
 		<li><p class="shortanswer">Internet Protocol version 6 (IPv6) is a much more advanced protocol and has better features than IPv4. Designed to be an evolutionary upgrade that will allow steady growth over time both in terms of Internet traffic and number of hosts connected. It has an infinite number of addresses. It will replace IPv4 world to solve the growing number of networks and the shortage of IP addresses. The number of bits in an IPv4-address are 32 in format decimal equating to a possible 4.3 billion number of addresses. An IPv6-address contains 128 bits in a hexadecimal format which equates to an infinite possible number of addresses. IPv6 will also make some important technological changes that were issues under IPv4. Changes such as auto-configuration, no more private address collisions, better multicast routing and more. <a href="http://www.webopedia.com/DidYouKnow/Internet/ipv6_ipv4_difference.html">http://www.webopedia.com/DidYouKnow/Internet/ipv6_ipv4_difference.html</a>
 		</p></li>
-        <li><p>A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted on the Internet <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">http://www.iana.org/assignments/media-types/media-types.xhtml</a>
+        <li><p class="shortanswer">A media type (also MIME type and content type) is a two-part identifier for file formats and format contents transmitted on the Internet <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">http://www.iana.org/assignments/media-types/media-types.xhtml</a>
 		</p></li>
-		<li><p>HEAD is identical to a GET request only the server must not return a message body in the response.<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html</a>
+		<li><p class="shortanswer">HEAD is identical to a GET request only the server must not return a message body in the response.<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html</a>
 		</p></li>
-		<li><p>
+		<li><p class="shortanswer">
 		Question 10
 		</p></li>
 		</ol>
@@ -236,7 +246,6 @@
 		    <img src="http://www.arocalypse.com/forums/applications/core/interface/imageproxy/imageproxy.php?img=https%3A%2F%2Fbarbarajbabcock.files.wordpress.com%2F2014%2F07%2Fhappy-potato-blog-post-2-jul-2014.jpg&key=0edc450b1b84116643398bb22400aa493839ba06e468579b12464bc3b4f52d53" alt="Potato" width="300" height="300">
 		    <figcaption>a cute potato</figcaption>
 		</figure>
-		<p> does this work </p>
 		</section>
 
 		<section>
@@ -245,21 +254,71 @@
 				<li><p class="shortanswer">For this question we used our default browser, Google Chrome. We were able to enable the console by first checking that JavaScript has been enabled for all pages on the Web in our browser's settings. Then by right-clicking somewhere on the lab3 web page on BB and choosing the inspect option we were greeted with a form displaying all the HTML elements of the page.</p>
 					<p class="shortanswer"> We then clicked on the tab "Console" and found the two (2) hidden <code> console.log() </code> messages "Hello World!" and "We advise you to always ...". By clicking on the links to the right of these messages, our console brought us to the sources page. There we found the "script" code block that contained the 'hidden' console.log() lines.</p></li>
 
-				<li><p>Question 2</p></li>
-				<li><p>Question 3</p></li>
-				<li><p>Question 4</p></li>
+				<li><p class="shortanswer"><img src="https://s23.postimg.org/e06tm6vtn/lab3_Question2.png" alt="Lab 3 Question 2" style="width:50%"></p></li>
+				<li><p class="shortanswer">Compare the use of JQuery to change the behavior of the &lta&gt element as shown in the example with the code you used in the previous question. List pros and cons of both methods.
+				<table>
+					<tr>
+						<th></th>
+						<th>JQuery</th>
+						<th>Javascript</th>
+					</tr>
+					<tr>
+						<td>Pro</td>
+						<td>When written as a function, the changes and behavior modifications can be implemented unto several event's and links within the doc, to perform complicated Javascript operations in little code. Also allows support for AJAX.</td>
+						<td>Ease of use.  The number of events that are available to override the behavior of a link element in an HTML DOM. </td>
+					</tr>
+					<tr>
+						<td>Con</td>
+						<td>the JQuery javsccript file is required. While the size of the file is relatively small, it still puts a strain on the client's computer and perhaps the web server too</td>
+						<td>Different layout engines may render Javascript differently resulting in inconsistency in terms of functionality and interface</td>
+					</tr>
+				</table>
+
+				</p></li>
+				<li><p class="shortanswer">Java and Javascript are both object oriented programming languages and are very similar in syntax. Javascript needs to be used inside html and unlike Java can't stand on itself. Java needs to be compiled while browsers can run Javascript immediatly.</p></li>
 				<li><p class="shortanswer"><abbr title="Asynchronous Javascript and XML">'AJAX'</abbr> - asynchronous JavaScript and XML. <em>Asynchronous</em> refers to a non-sequential I/O (input/output), a form of processing that allows other non-I/O-dependant processing to continue before transmission has finished. The simple approach to I/O would be synchronous I/O. While it is simple, it does leave a lot of system resources remaining idle while they wait for all processing to be completed. However in an asynchronous approach, any task that relies on the I/O being complete will still have to wait, but other processing that has no dependency on the I/O operation can continue.</p></li>
-				<li><p>Question 6</p></li>
+				<li><p class="shortanswer">Host objects are provided by the enviroment and can differ dependent on the browser you use. Common host objects are document and form. Java and Python don't have equivalent objects because they are independent of the enviroment. This means that applications will mostly run only on one platform.</p></li>
 				<li>
 					<ol type="i">
 						<li><p><em>Function</em> - functions are lines of code that define a method that will serve the whole document more than just once. "Function" objects created by the "Function" constructor are parsed when it is created. All arguments passed to the function are treated as the names of the identifiers of the parameters in the function to be created, in the order in which they are passed.</p></li>
 						<li><p><em>Proxy</em> - used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc.). The object and its methods can be used to define the behavior of a target proxy when an operation is performed on it.</p></li>
 					</ol>
 				</li>
-				<li><p>Question 8</p></li>
-				<li><p>Question 9</p></li>
-				<li><p>Question 10</p></li>
+				<li><p class="shortanswer">Events and Event listeners are used to react to changes in the html. This could be a form submission, a button or when the webpage loads.</p></li>
+				<li><p class="shortanswer">Part of the 'Places' library that the Google Maps API which lets you take advantage of the millions of geo data that Google has collected over the years. Autocomplete puts one input box where users can type out there requests and then in real-time, Google will try to complete the query that they are typing out based on other relevant user information. In terms of what changes it'll make to the Google Maps experience is that Google will take the surrounding location of the user into account.
+				</p></li>
+				<li class="shortanswer"><p>Question 10</p></li>
 			</ol>
 		</section>
+
+		<section>
+		<h2 id="Lab4"> LAB 4 </h2>
+		<p>Question 1<p>
+		<ol class="labquestions" type="a">
+			<li><p class="shortanswer">We believe that the tokenizer had done its job well yet there is still room for improvement. After sorting the table by the chapter V1, RStudio then shows us the words and the frequency of the words in the first chapter, we saw that the letter ‘s’ appears frequently throughout the whole of the novel. The only explanation for this standalone-letter to appear so frequently is that after the tokenization and deleting of punctuation, it counts the ‘s’ after an apostrophe as a word on its own. This could be fixed by either having the tokenization process simply ignore what comes after apostrophes, or to have it not delete apostrophes and include those words in the dictionary</p></li>
+			<li><p class="shortanswer">Looking at the top 30 words, most of them should be included, as most of the words were expected to be in the top 30 i.e. “the”, “and”, “to”, and “a”. However, referring back to the previous question, there are stand-alone letters like “s” and “t” that find themselves in the top 30 that shouldn’t really be included. This is because they aren’t technically words on their own, rather the suffix of a variety, meaning that these apostrophes and “s’s” and “t’s” aren’t all coming from one sort of word, hence they shouldn’t be included in the top 30 most frequently used words this list.</p></li>
+			<li><p class="shortanswer">Looking at the frequency matrix, we noted that the first 30 words do not follow Zipf’s law. The increments at which they decrease after the most and second-most frequent words are too small. Zipf’s law indicates that words should appear at half the frequency as the word prior to it. Instead, the difference between the most frequent word and the second-most are half however the third most frequent shows up only 100 times less frequent, which does not equate to half of frequency of the second most frequent word.
+			<img src="https://s27.postimg.org/5emo1izyr/assignment4_1.png" style="width:50%";>
+			</p></li>
+			<li><p class="shortanswer">After looking at the graph that RStudio has produced of Heap’s Law in reference to our top 30 most frequent words list on the Alice text file, we can see that it follows Heap’s Law almost exactly. The unique vocabulary as the machine searches through the text increases drastically.
+			<img src="https://s24.postimg.org/ba8xi43wl/assignment4_2.png" style="width:50%";>
+			</p></li>
+		</ol>
+		<p> Question 2</p>
+
+		<ol class="labquestions" type="a">
+			<li><p class="shortanswer">We assess the quality of a TF-based search by assessing both its precision and the recall of the search. When it comes to precision, the number of relevant information in the data that is provided by the program. Precision of the TF-based search was dependent on the frequency of the query throughout the Alice.txt file. The more frequent a query, the more relevant information would be given back by RStudio. Recall of the TF-based search is also dependent on the frequency of the query yet if we wanted more information than just which chapters our query is found in and their frequency, perhaps we would also like to know which lines they appear on. In that case the recall of the search is lacking in some areas. Always room for improvement.</p></li>
+			<li><p class="shortanswer">The difference between the TF-based search and TFIDF-based search is that the TFIDF score reflects the importance of the document in the collection, in this case, on a per chapter basis. The TFIDF score increases proportionally to the number of times a word appears in the document, but also considers the frequency of the word in the corpus. The three terms with the highest TFIDF scores are:
+			<ol type="a">
+				<li>Footman – 6.946012</li>
+				<li>Dance - 6.769048</li>
+				<li>Pigeon – 6.578965</li>
+			</ol>
+			I believe that these terms reflect their respective chapters well.
+			</p></li>
+			<li><p class="shortanswer">	It doesn’t make sense to set the variable k to 5 when trying to because after discarding the initial chapter (title page) there are only 11 chapters left to choose from. If we were to take the top 5 chapters that would already be half the text that we would have to analyze. To implement a number like 5 to the variable k, would be better for a file that would span across thousands of chapters, in which case looking across the 5 highest ranked results would be preferred.</p></li>
+			<li><p class="shortanswer">The precision would increase while the recall might also increase.</p></li>
+			
+		</ol>
 	</body>
 </html>
